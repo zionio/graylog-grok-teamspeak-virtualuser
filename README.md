@@ -1,6 +1,8 @@
 TeamSpeak Server Virtual User Connections GROK pattern for Graylog
 ==================================================================
 
+**(Tested on TeamSpeak 3 Server 3.0.13.8)**
+
 Pattern
 -------
 
