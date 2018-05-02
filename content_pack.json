@@ -1,0 +1,22 @@
+{
+	"name":"TeamSpeak Server Virtual User Connections GROK pattern for Graylog",
+	"description":"Graylog Grok pattern for TeamSpeak Server User Connections.",
+	"category":"Grok",
+	"inputs":[],
+	"streams":[],
+	"outputs":[],
+	"dashboards":[],
+	"grok_patterns":[
+		{
+			"name":"TEAMSPEAK3_USER_CONNECTED",
+			"pattern":"%{TIMESTAMP_ISO8601:log_ts_timestamp}\|%{WORD:log_ts_level}%{GREEDYDATA}\|%{WORD:log_ts_module}%{GREEDYDATA}\|%{POSINT:log_ts_virtualserver}%{GREEDYDATA}\|%{DATA:log_ts_action} \'%{DATA:log_ts_user}\'\(id:%{POSINT:log_ts_client_dbid}\) from %{IP:log_ts_client_ip}"
+		},
+		{
+			"name":"TEAMSPEAK3_USER_DISCONNECTED",
+			"pattern":"%{TIMESTAMP_ISO8601:log_ts_timestamp}\|%{WORD:log_ts_level}%{GREEDYDATA}\|%{WORD:log_ts_module}%{GREEDYDATA}\|%{POSINT:log_ts_virtualserver}%{GREEDYDATA}\|%{DATA:log_ts_action} \'%{DATA:log_ts_user}\'\(id:%{POSINT:log_ts_client_dbid}\) reason \'reasonmsg=%{GREEDYDATA:log_ts_client_reasonmsg}\'"
+		}
+	],
+	"lookup_tables":[],
+	"lookup_caches":[],
+	"lookup_data_adapters":[]
+}
